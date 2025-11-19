@@ -1,5 +1,6 @@
 import { Box, Center, Input, Text } from "@chakra-ui/react"
-import { Send } from "./Button";
+import { SButton } from "./SButton";
+import { login } from "../services/login";
 
 interface LoginCardProps {
   id: string;
@@ -12,7 +13,7 @@ export const LoginCard = ({ id, email, password }: LoginCardProps) => {
     <Box minHeight='100vh' backgroundColor='#060010' padding='25px'>
       <Box backgroundColor='#191919'  padding='15px' >
         <Center mb="20px" >
-        <Text fontSize="2xl" fontWeight="normal" color="#554a00">
+        <Text fontSize="2xl" fontWeight="normal" color="#998e43">
           {id}
         </Text>
         </Center>
@@ -36,7 +37,9 @@ export const LoginCard = ({ id, email, password }: LoginCardProps) => {
         focusBorderColor="gray.500"
       />
       <Center marginTop="20px">
-        <Send />
+        <SButton 
+          onClick={login}
+        />
       </Center>
       </Box>
     </Box>
