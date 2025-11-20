@@ -1,7 +1,7 @@
 import { Box, Center, Text } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { api } from "../services/api";
-import { useNavigate, useParams, useRouteLoaderData } from "react-router";
+import { Link, useNavigate, useParams, useRouteLoaderData } from "react-router";
 
 
 interface IUserData {
@@ -81,6 +81,12 @@ const Account = () => {
                     <p style={{ color: "#998e43" }}>Your Current Balance is: <b style={{ color: "white" }}>{formattedBalance}</b></p>
                     <p style={{ color: "#998e43", marginTop: "10px" }}>Current date: <b style={{ color: "white" }}>{cDayformatted}</b></p>
                     <p style={{ color: "#998e43" }}>Current time: <b style={{ color: "white" }}>{cHourformatted}</b></p>
+                    <Link to="/">
+                        <p style={{ color: "#998e43", marginTop: "20px", fontSize: "12px" }}>Go to Home</p>
+                    </Link>
+                    <Link to="/account/info">
+                        <p style={{ color: "#998e43", marginTop: "20px", fontSize: "12px" }}>Account Info</p>
+                    </Link>
                 </Box>
             </Box>
     )
