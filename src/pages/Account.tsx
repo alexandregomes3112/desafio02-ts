@@ -1,7 +1,8 @@
 import { Box, Center, Text } from "@chakra-ui/react";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { api } from "../services/api";
-import { Link, useNavigate, useParams, useRouteLoaderData } from "react-router";
+import { Link, useNavigate, useParams } from "react-router";
+import { AppContext } from "../components/AppContext";
 
 
 interface IUserData {
@@ -28,6 +29,9 @@ const Account = () => {
     const { id } = useParams()
     const navigate = useNavigate()
     const [userData, SetUserData] = useState<null | IUserData>();
+    
+    const context = useContext(AppContext)
+    console.log('account page', context);
   
     useEffect(() => {
       const getData = async () => {
