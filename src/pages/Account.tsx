@@ -30,8 +30,10 @@ const Account = () => {
     const navigate = useNavigate()
     const [userData, SetUserData] = useState<null | IUserData>();
     
-    const context = useContext(AppContext)
-    console.log('account page', context);
+    const { isLoggedIn }  = useContext(AppContext)
+    console.log('account page', isLoggedIn);
+
+    !isLoggedIn && navigate('/')
   
     useEffect(() => {
       const getData = async () => {
