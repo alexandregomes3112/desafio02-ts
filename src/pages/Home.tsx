@@ -49,7 +49,6 @@ const Home = () => {
                         Login
                     </Text>
                 </Center>
-                <p style={{ color: "#bca643" }}>{userData?.Name}</p>
                 <Input
                     placeholder="e-Mail"
                     type="email"
