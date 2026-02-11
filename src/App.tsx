@@ -6,9 +6,8 @@ import MainRoutes from './routes';
 import { createLocalStorage, getAllLocalStorage } from './services/storage';
   
 function App() {
-  createLocalStorage()
 
-  console.log(getAllLocalStorage())
+  !getAllLocalStorage() && createLocalStorage()
 
   return (
     <BrowserRouter>
