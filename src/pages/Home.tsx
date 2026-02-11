@@ -2,9 +2,10 @@ import { Box, Center, Input, Text } from "@chakra-ui/react";
 import { LoginCard } from "../components/Card";
 import { SButton } from "../components/SButton";
 import { login } from "../services/login";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { api } from "../services/api";
 import { Navigate, useNavigate } from "react-router-dom";
+import { AppContext } from "../components/AppContext";
 
 interface IUserData {
   email: string;
@@ -16,6 +17,7 @@ const Home = () => {
     const [ email, setEmail ] = useState<string>('');
     const [ password, setPassword ] = useState<string>('');
     const [userData, SetUserData] = useState<null | IUserData>();
+    const {setIsLoggedIn} = useContext(AppContext)
     const navigate = useNavigate()
 
     useEffect(() => {
@@ -34,8 +36,10 @@ const Home = () => {
             alert("Invalid email or password.");
         }
 
-        Navigate("/dashboard");
+        setIsLoggedIn(true);
+        navigate("/account/1");
 
+    }
 
     return (
         <Box minHeight='100vh' backgroundColor='#060010' padding='25px'>
@@ -71,7 +75,7 @@ const Home = () => {
                     />
                 <Center marginTop="20px">
                     <SButton
-                        onClick={() => login(email, password)}
+                        onClick={() => validateUser(email, password)}
                         />
                 </Center>
             </LoginCard>
