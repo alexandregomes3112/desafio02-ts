@@ -65,4 +65,3 @@ export const formatFullDateTime = (date: Date = new Date()): string => {
   
   return `${dateStr} at ${timeStr}`;
 };
-

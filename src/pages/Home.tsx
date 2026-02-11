@@ -4,6 +4,7 @@ import { SButton } from "../components/SButton";
 import { login } from "../services/login";
 import { useEffect, useState } from "react";
 import { api } from "../services/api";
+import { Navigate, useNavigate } from "react-router-dom";
 
 interface IUserData {
   email: string;
@@ -15,6 +16,7 @@ const Home = () => {
     const [ email, setEmail ] = useState<string>('');
     const [ password, setPassword ] = useState<string>('');
     const [userData, SetUserData] = useState<null | IUserData>();
+    const navigate = useNavigate()
 
     useEffect(() => {
     const getData = async () => {
@@ -26,15 +28,24 @@ const Home = () => {
 
     }, [])
 
+    const validateUser = async (email: string, password: string) => {
+        const loggedIn = await login(email, password);
+        if (!loggedIn) {
+            alert("Invalid email or password.");
+        }
+
+        Navigate("/dashboard");
+
+
     return (
         <Box minHeight='100vh' backgroundColor='#060010' padding='25px'>
             <LoginCard>
                 <Center mb="20px" >
-                    <Text fontSize="2xl" fontWeight="normal" color="#998e43">
+                    <Text fontSize="2xl" fontWeight="normal" color="#BCA643">
                         Login
                     </Text>
                 </Center>
-                <p style={{ color: "#998e43" }}>{userData?.Name}</p>
+                <p style={{ color: "#bca643" }}>{userData?.Name}</p>
                 <Input
                     placeholder="e-Mail"
                     type="email"

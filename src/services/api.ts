@@ -1,5 +1,5 @@
 const conta = {
-    email: 'hello@there.com', 
+    email: 'john@provider.com', 
     password: 'password123', 
     Name: 'John Smith', 
     balance: 1000987.50, 

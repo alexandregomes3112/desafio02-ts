@@ -11,19 +11,7 @@ interface IUserData {
     id: number;
   }
   
-  export const AccountCard = () => {
-  const [userData, SetUserData] = useState<null | IUserData>();
-  
-  useEffect(() => {
-    const getData = async () => {
-      const data: any | IUserData = await api 
-      SetUserData(data as IUserData)
-    }
-  
-    getData()
-  
-  }, [])
-}
+  // AccountCard removed — unused. Account component below handles data fetching.
 
 const Account = () => {
     const { id } = useParams()
@@ -31,7 +19,7 @@ const Account = () => {
     const [userData, SetUserData] = useState<null | IUserData>();
     
     const { isLoggedIn }  = useContext(AppContext)
-    console.log('account page', isLoggedIn);
+    // console.log('account page', isLoggedIn);
 
     !isLoggedIn && navigate('/')
   
@@ -79,19 +67,19 @@ const Account = () => {
             <Box minHeight='100vh' backgroundColor='#060010' padding='25px'>
                   <Box backgroundColor='#191919'  padding='15px' >
                     <Center mb="20px" >
-                    <Text fontSize="2xl" fontWeight="normal" color="#998e43">
+                    <Text fontSize="2xl" fontWeight="normal" color="#bca643">
                       My Account
                     </Text>
                     </Center>
-                    <p style={{ color: "#998e43" }}>Welcome <b style={{ color: "white" }}>{userData?.Name}</b> !</p>
-                    <p style={{ color: "#998e43" }}>Your Current Balance is: <b style={{ color: "white" }}>{formattedBalance}</b></p>
-                    <p style={{ color: "#998e43", marginTop: "10px" }}>Current date: <b style={{ color: "white" }}>{cDayformatted}</b></p>
-                    <p style={{ color: "#998e43" }}>Current time: <b style={{ color: "white" }}>{cHourformatted}</b></p>
+                    <p style={{ color: "#bca643" }}>Welcome <b style={{ color: "white" }}>{userData?.Name}</b> !</p>
+                    <p style={{ color: "#bca643" }}>Your Current Balance is: <b style={{ color: "white" }}>{formattedBalance}</b></p>
+                    <p style={{ color: "#bca643", marginTop: "10px" }}>Current date: <b style={{ color: "white" }}>{cDayformatted}</b></p>
+                    <p style={{ color: "#bca643" }}>Current time: <b style={{ color: "white" }}>{cHourformatted}</b></p>
                     <Link to="/">
-                        <p style={{ color: "#998e43", marginTop: "20px", fontSize: "12px" }}>Go to Home</p>
+                        <p style={{ color: "#bca643", marginTop: "20px", fontSize: "12px" }}>Go to Home</p>
                     </Link>
                     <Link to="/account/info">
-                        <p style={{ color: "#998e43", marginTop: "20px", fontSize: "12px" }}>Account Info</p>
+                        <p style={{ color: "#bca643", marginTop: "20px", fontSize: "12px" }}>Account Info</p>
                     </Link>
                 </Box>
             </Box>
