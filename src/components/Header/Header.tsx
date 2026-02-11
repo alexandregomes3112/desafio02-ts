@@ -1,13 +1,34 @@
 import './Header.css'
 import { useContext } from 'react'
 import { AppContext } from '../AppContext';
+import {Box, Button, Center, Flex, Spacer, Text } from '@chakra-ui/react';
+import { useNavigate } from 'react-router-dom';
 
 export const Header  = () => {
-  const context = useContext(AppContext);
-  console.log('header return', context);
+  const { isLoggedIn, setIsLoggedIn } = useContext(AppContext);
+  const navigate = useNavigate()
+
+  const logout = () => {
+    setIsLoggedIn(false);
+    navigate('/')
+  }
   return(
-    <div className='header'>
-      🏦 DIO Bank 🏦
-    </div>
+    <Flex backgroundColor="#807215" padding='5px' alignItems='center'>
+      <Box>
+        <Center>
+          <Text fontFamily="Arial, sans-serif" fontSize="3xl" color="#171400">
+            🏦 DIO Bank 🏦
+          </Text>
+        </Center>
+      </Box>
+      {
+        isLoggedIn && (
+          <>
+            <Spacer />
+            <Button onClick={logout}>Logout</Button>
+          </>
+        )
+      }
+    </Flex>
   )
 }

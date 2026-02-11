@@ -78,7 +78,7 @@ const Account = () => {
                     <Link to="/">
                         <p style={{ color: "#bca643", marginTop: "20px", fontSize: "12px" }}>Go to Home</p>
                     </Link>
-                    <Link to="/account/info">
+                    <Link to="/accountinfo">
                         <p style={{ color: "#bca643", marginTop: "20px", fontSize: "12px" }}>Account Info</p>
                     </Link>
                 </Box>

@@ -33,7 +33,7 @@ const Home = () => {
     const validateUser = async (email: string, password: string) => {
         const loggedIn = await login(email, password);
         if (!loggedIn) {
-            alert("Invalid email or password.");
+            return alert("Invalid email or password.");
         }
 
         setIsLoggedIn(true);
