@@ -1,7 +1,7 @@
-import { Box, Center, Text } from "@chakra-ui/react";
+import { Box, Center, Text, Link as ChakraLink } from "@chakra-ui/react";
 import { useContext, useEffect, useState } from "react";
 import { api } from "../services/api";
-import { Link, useNavigate, useParams } from "react-router";
+import { Link as RouterLink, useNavigate, useParams } from "react-router-dom";
 import { AppContext } from "../components/AppContext";
 
 
@@ -19,7 +19,9 @@ const Account = () => {
     
     const { isLoggedIn }  = useContext(AppContext)
 
-    !isLoggedIn && navigate('/')
+    useEffect(() => {
+      if (!isLoggedIn) navigate('/')
+    }, [isLoggedIn, navigate])
   
     useEffect(() => {
       const getData = async () => {
@@ -65,17 +67,15 @@ const Account = () => {
             <Box minHeight='100vh' backgroundColor='#060010' padding='25px'>
                   <Box backgroundColor='#191919'  padding='15px' >
                     <Center mb="20px" >
-                    <Text fontSize="2xl" fontWeight="normal" color="#bca643">
+                    <Text fontSize="2xl" fontWeight="bold" color="#bca643">
                       My Account
                     </Text>
                     </Center>
-                    <p style={{ color: "#bca643" }}>Welcome <b style={{ color: "white" }}>{userData?.Name}</b> !</p>
-                    <p style={{ color: "#bca643" }}>Your Current Balance is: <b style={{ color: "white" }}>{formattedBalance}</b></p>
-                    <p style={{ color: "#bca643", marginTop: "10px" }}>Current date (M/D/Y): <b style={{ color: "white" }}>{cDayformatted}</b></p>
-                    <p style={{ color: "#bca643" }}>Current time (h:m:s): <b style={{ color: "white" }}>{cHourformatted}</b></p>
-                    <Link to="/accountinfo">
-                        <p style={{ color: "#bca643", marginTop: "20px", fontSize: "12px" }}>Account Info </p>
-                    </Link>
+                    <Text color="#bca643">Welcome <Text as="span" fontWeight="bold" color="white">{userData?.Name}</Text> !</Text>
+                    <Text color="#bca643">Your Current Balance is: <Text as="span" fontWeight="bold" color="white">{formattedBalance}</Text></Text>
+                    <Text color="#bca643" mt="2">Current date (M/D/Y): <Text as="span" fontWeight="bold" color="white">{cDayformatted}</Text></Text>
+                    <Text color="#bca643">Current time (h:m:s): <Text as="span" fontWeight="bold" color="white">{cHourformatted}</Text></Text>
+                    <ChakraLink as={RouterLink} to="/accountinfo" color="#eae4c6" mt={4} display="inline-block" fontSize="12px">Account Info</ChakraLink>
                 </Box>
             </Box>
     )

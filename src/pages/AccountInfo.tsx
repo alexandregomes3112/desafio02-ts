@@ -46,46 +46,46 @@ const AccountInfo = () => {
 
     return (
         <Box minHeight='100vh' backgroundColor='#060010' padding='25px'>
-            <Text fontSize="2xl" fontWeight="normal" color="#bca643" marginBottom='20px'>Account Info Page</Text>
+            <Text fontSize="2xl" fontWeight="bold" color="#bca643" marginBottom='20px'>Account Info Page</Text>
             <TableContainer>
-                <Table variant="unstyled" >
+                <Table variant="unstyled" size="sm" >
                     <tbody>
                         <Tr _hover={{ backgroundColor: "#1e1927", color: "black" }} transition="0.3s">
-                            <Td style={{ color: "#bca643" }}>Name:</Td>
-                            <Td style={{ color: "white"}}>{userData?.Name}</Td>
+                            <Td color="#bca643">Name:</Td>
+                            <Td color="white">{userData?.Name}</Td>
                         </Tr>
                         <Tr _hover={{ backgroundColor: "#1e1927", color: "black" }} transition="0.3s">
-                            <Td style={{ color: "#bca643"}}>ID:</Td>
-                            <Td style={{ color: "white" }}>{userData?.id}</Td>
+                            <Td color="#bca643">ID:</Td>
+                            <Td color="white">{userData?.id}</Td>
                         </Tr>
                         <Tr _hover={{ backgroundColor: "#1e1927", color: "black" }} transition="0.3s">
-                            <Td style={{ color: "#bca643" }}>SSN:</Td>
-                            <Td style={{ color: "white" }}>{userData?.SSN}</Td>
+                            <Td color="#bca643">SSN:</Td>
+                            <Td color="white">{userData?.SSN}</Td>
                         </Tr>
                         <Tr _hover={{ backgroundColor: "#1e1927", color: "black" }} transition="0.3s">
-                            <Td style={{ color: "#bca643"}}>Address:</Td>
-                            <Td style={{ color: "white" }}>{userData?.address}</Td>
+                            <Td color="#bca643">Address:</Td>
+                            <Td color="white">{userData?.address}</Td>
                         </Tr>
                         <Tr _hover={{ backgroundColor: "#1e1927", color: "black" }} transition="0.3s">
-                            <Td style={{ color: "#bca643" }}>Phone:</Td>
-                            <Td style={{ color: "white" }}>{userData?.phone}</Td>
+                            <Td color="#bca643">Phone:</Td>
+                            <Td color="white">{userData?.phone}</Td>
                         </Tr>
                         <Tr _hover={{ backgroundColor: "#1e1927", color: "black" }} transition="0.3s">
-                            <Td style={{ color: "#bca643" }}>Account Type:</Td>
-                            <Td style={{ color: "white" }}>{userData?.accountType}</Td>
+                            <Td color="#bca643">Account Type:</Td>
+                            <Td color="white">{userData?.accountType}</Td>
                         </Tr>
                         <Tr _hover={{ backgroundColor: "#1e1927", color: "black" }} transition="0.3s">
-                            <Td style={{ color: "#bca643" }}>Opened Date:</Td>
-                            <Td style={{ color: "white" }}>{userData?.openedDate}</Td>
+                            <Td color="#bca643">Opened Date:</Td>
+                            <Td color="white">{userData?.openedDate}</Td>
                         </Tr>
                         <Tr _hover={{ backgroundColor: "#1e1927", color: "black" }} transition="0.3s">
-                            <Td style={{ color: "#bca643" }}>Last Login:</Td>
-                            <Td style={{ color: "white" }}>{userData?.lastLogin}</Td>
+                            <Td color="#bca643">Last Login:</Td>
+                            <Td color="white">{userData?.lastLogin}</Td>
                         </Tr>
                     </tbody>
                 </Table>
             </TableContainer>
-            <ChakraLink as={RouterLink} color="#bca643" to="/account/1">Return to Account Page</ChakraLink>
+            <ChakraLink as={RouterLink} color="#eae4c6" to="/account/1" mt={4} display="inline-block" fontSize="12px">Return to Account Page</ChakraLink>
         </Box>
     )
 }

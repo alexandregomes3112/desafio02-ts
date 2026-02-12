@@ -1,4 +1,3 @@
-import './Header.css'
 import { useContext } from 'react'
 import { AppContext } from '../AppContext';
 import {Box, Button, Center, Flex, Spacer, Text } from '@chakra-ui/react';
@@ -15,8 +14,8 @@ export const Header  = () => {
     setIsLoggedIn(false)
     navigate('/')
   }
-  return(
-    <Flex backgroundColor="#807215" padding='5px' alignItems='center'>
+  return (
+    <Flex bg="#807215" p={3} alignItems="center">
       <Box>
         <Center>
           <Text fontFamily="Arial, sans-serif" fontSize="3xl" color="#171400">
@@ -24,14 +23,12 @@ export const Header  = () => {
           </Text>
         </Center>
       </Box>
-      {
-        isLoggedIn && (
-          <>
-            <Spacer />
-            <Button onClick={logout}>Logout</Button>
-          </>
-        )
-      }
+      {isLoggedIn && (
+        <>
+          <Spacer />
+          <Button onClick={logout}>Logout</Button>
+        </>
+      )}
     </Flex>
   )
 }
