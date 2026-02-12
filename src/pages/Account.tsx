@@ -11,7 +11,6 @@ interface IUserData {
     id: number;
   }
   
-  // AccountCard removed — unused. Account component below handles data fetching.
 
 const Account = () => {
     const { id } = useParams()
@@ -19,7 +18,6 @@ const Account = () => {
     const [userData, SetUserData] = useState<null | IUserData>();
     
     const { isLoggedIn }  = useContext(AppContext)
-    // console.log('account page', isLoggedIn);
 
     !isLoggedIn && navigate('/')
   
@@ -73,13 +71,10 @@ const Account = () => {
                     </Center>
                     <p style={{ color: "#bca643" }}>Welcome <b style={{ color: "white" }}>{userData?.Name}</b> !</p>
                     <p style={{ color: "#bca643" }}>Your Current Balance is: <b style={{ color: "white" }}>{formattedBalance}</b></p>
-                    <p style={{ color: "#bca643", marginTop: "10px" }}>Current date: <b style={{ color: "white" }}>{cDayformatted}</b></p>
-                    <p style={{ color: "#bca643" }}>Current time: <b style={{ color: "white" }}>{cHourformatted}</b></p>
-                    <Link to="/">
-                        <p style={{ color: "#bca643", marginTop: "20px", fontSize: "12px" }}>Go to Home</p>
-                    </Link>
+                    <p style={{ color: "#bca643", marginTop: "10px" }}>Current date (M/D/Y): <b style={{ color: "white" }}>{cDayformatted}</b></p>
+                    <p style={{ color: "#bca643" }}>Current time (h:m:s): <b style={{ color: "white" }}>{cHourformatted}</b></p>
                     <Link to="/accountinfo">
-                        <p style={{ color: "#bca643", marginTop: "20px", fontSize: "12px" }}>Account Info</p>
+                        <p style={{ color: "#bca643", marginTop: "20px", fontSize: "12px" }}>Account Info </p>
                     </Link>
                 </Box>
             </Box>

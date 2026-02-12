@@ -7,28 +7,11 @@ import { useNavigate } from "react-router-dom";
 import { AppContext } from "../components/AppContext";
 import { changeLocalStorage } from "../services/storage";
 
-// interface IUserData {
-//   email: string;
-//   password: string;
-//   Name: string;
-// }
-
 const Home = () => {
     const [ email, setEmail ] = useState<string>('');
     const [ password, setPassword ] = useState<string>('');
-    //const [ SetUserData ]  = useState<null | IUserData>();
     const {setIsLoggedIn} = useContext(AppContext)
     const navigate = useNavigate()
-
-    // useEffect(() => {
-    // const getData = async () => {
-    //     const data: any | IUserData = await api 
-    //     SetUserData(data as IUserData)
-    // }
-
-    // getData()
-
-    // }, [])
 
     const validateUser = async (email: string, password: string) => {
         const loggedIn = await login(email, password);
