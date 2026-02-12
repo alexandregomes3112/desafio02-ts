@@ -13,13 +13,16 @@ export const AppContextProvider = ({children}: any) => {
   const user = "John Smith";
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false)
 
-  const storage= getAllLocalStorage()
-
   useEffect(() => {
-  if(storage) {
-    const { login } = JSON.parse(storage)
-    setIsLoggedIn(login)
-              }
+    const storage = getAllLocalStorage()
+    if (storage) {
+      try {
+        const { login } = JSON.parse(storage)
+        setIsLoggedIn(login)
+      } catch {
+        // ignore invalid storage
+      }
+    }
   }, [])
   
   return (
