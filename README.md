@@ -51,3 +51,4 @@ npm run start
   - Escreva os testes unitários para as funções criadas ou refatoradas.
 
 [ X ] Fazer o deploy no Netlify e compartilhar o link da página
+[DIO Bank - Alexandre Gomes](https://dio-bank-alexandregomes3112.netlify.app/)
